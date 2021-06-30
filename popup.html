@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nsp</title>
+    <style>
+      body {
+        height: 400px;
+        width: 300px;
+        background-color: #1f1e29;
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: bold;
+        font-size: 24px;
+        padding: 30px;
+      }
+
+      #copyBtn {
+        display: none;
+      }
+
+      #copyText {
+        display: none;
+      }
+
+      button {
+        padding: 15px;
+        border: 2px solid lightgray;
+        background-color: #191825;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 50px;
+      }
+
+      #pwdField {
+        color: coral;
+      }
+      p {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="pwdField">Default Password</div>
+    <div id="copyText" style="color: green">Copied</div>
+    <div id="copyBtn">
+      <button>Copy</button>
+    </div>
+    <div id="generatePwd" class="button">
+      <button>Generate Password</button>
+    </div>
+    <div id="lastPwd">Last copied pwd is:</div>
+    <p>Don't forget to save it in main vault click below to save</p>
+    <a href="#">Save Password</a>
+    <script src="./popup_script.js"></script>
+  </body>
+</html>

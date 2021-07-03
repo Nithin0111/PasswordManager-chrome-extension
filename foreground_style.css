@@ -66,3 +66,7 @@
   width: fit-content;
   margin-top: 10px;
 }
+
+.open_popup {
+  display: block !important;
+}

@@ -1,5 +1,8 @@
 // html creation
 const ce_main_container = document.createElement("div");
+// const ce_burger_1 = document.createElement("div");
+// const ce_burger_2 = document.createElement("div");
+// const ce_burger_3 = document.createElement("div");
 const ce_button = document.createElement("div");
 const ce_child_container = document.createElement("div");
 const nsp_container = document.createElement("div");
@@ -9,14 +12,12 @@ const nsp_pwd_btn = document.createElement("div");
 const nsp_cp_btn = document.createElement("div");
 const cp_text = document.createElement("p");
 const fill_btn = document.createElement("div");
-const close_btn = document.createElement("div");
 
 //Adding Classes
 nsp_pwd_text.classList.add("nsp_text");
 nsp_pwd_btn.classList.add("nsp_btn");
 nsp_cp_btn.classList.add("nsp_btn");
 fill_btn.classList.add("fill_btn");
-close_btn.classList.add("fill_btn");
 
 //Adding Ids
 cp_text.id = "cp_text";
@@ -26,7 +27,6 @@ ce_child_container.id = "ce_child";
 nsp_container.id = "nsp_container";
 nsp_child_container.id = "nsp_child";
 nsp_cp_btn.id = "cp_btn";
-close_btn.id = "close_btn";
 
 //Appending to containers
 ce_main_container.appendChild(ce_button);
@@ -34,9 +34,8 @@ ce_main_container.appendChild(ce_child_container);
 
 //Adding to nsp container
 nsp_container.appendChild(nsp_child_container);
-nsp_container.appendChild(fill_btn);
-nsp_container.appendChild(close_btn);
 nsp_container.appendChild(cp_text);
+nsp_container.appendChild(fill_btn);
 nsp_child_container.appendChild(nsp_pwd_text);
 nsp_child_container.appendChild(nsp_pwd_btn);
 nsp_child_container.appendChild(nsp_cp_btn);
@@ -50,7 +49,6 @@ nsp_pwd_btn.innerHTML =
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="fill: #fff;"><path fill="none" d="M0 0h24v24H0z"></path><path d="M5.463 4.433A9.961 9.961 0 0 1 12 2c5.523 0 10 4.477 10 10 0 2.136-.67 4.116-1.81 5.74L17 12h3A8 8 0 0 0 6.46 6.228l-.997-1.795zm13.074 15.134A9.961 9.961 0 0 1 12 22C6.477 22 2 17.523 2 12c0-2.136.67-4.116 1.81-5.74L7 12H4a8 8 0 0 0 13.54 5.772l.997 1.795z"></path></svg>';
 nsp_cp_btn.innerHTML =
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="fill: #fff"><path fill="none" d="M0 0h24v24H0z"/><path d="M7 6V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3v3c0 .552-.45 1-1.007 1H4.007A1.001 1.001 0 0 1 3 21l.003-14c0-.552.45-1 1.007-1H7zM5.003 8L5 20h10V8H5.003zM9 6h8v10h2V4H9v2z"/></svg>';
-close_btn.innerHTML = "close";
 // if (document.querySelector("input[type='password']")) {
 //   document.querySelector("body").appendChild(ce_main_container);
 // }
@@ -124,9 +122,6 @@ const copyTextToClipboard = (text) => {
   );
 };
 
-//open close logic
-let open = false;
-
 //Extension main logic
 //Extracting parent of the password input field
 let pwdParent = document.querySelector("input[type='password']").parentElement;
@@ -137,12 +132,7 @@ pwdParent.appendChild(ce_main_container);
 //on click on main icon show the popup of gen passoword
 ce_main_container.addEventListener("click", () => {
   document.querySelector("#ce_child").appendChild(nsp_container);
-  open = !open;
-  if (open) {
-    nsp_container.style.display = "block";
-  } else {
-    nsp_container.style.display = "none";
-  }
+  nsp_container.classList.add("open_popup");
 });
 
 nsp_pwd_text.innerHTML = password;
@@ -162,9 +152,4 @@ nsp_cp_btn.addEventListener("click", () => {
 
 fill_btn.addEventListener("click", () => {
   document.querySelector('input[type="password"]').value = password;
-  nsp_container.style.display = "none";
-});
-
-close_btn.addEventListener("click", () => {
-  nsp_container.style.display = "none";
 });

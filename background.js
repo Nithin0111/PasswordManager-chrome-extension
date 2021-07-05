@@ -1,6 +1,6 @@
 chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.local.set({
-    password: "Defalt Password",
+    password: "Default password",
   });
 });
 

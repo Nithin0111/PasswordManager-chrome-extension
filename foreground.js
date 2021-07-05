@@ -1,4 +1,3 @@
-// html creation
 const ce_main_container = document.createElement("div");
 // const ce_burger_1 = document.createElement("div");
 // const ce_burger_2 = document.createElement("div");
@@ -130,10 +129,25 @@ pwdParent.style.position = "relative";
 pwdParent.appendChild(ce_main_container);
 
 //on click on main icon show the popup of gen passoword
-ce_main_container.addEventListener("click", () => {
-  document.querySelector("#ce_child").appendChild(nsp_container);
-  nsp_container.classList.add("open_popup");
-});
+document
+  .querySelector("#ce_button")
+  .addEventListener("click", function (event) {
+    document.querySelector("#ce_child").appendChild(nsp_container);
+    if (document.querySelector("#nsp_container").style.display === "none") {
+      document.querySelector("#nsp_container").style.display = "block";
+      document.querySelector("#ce_button").innerHTML =
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="#fff" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-11.414L9.172 7.757 7.757 9.172 10.586 12l-2.829 2.828 1.415 1.415L12 13.414l2.828 2.829 1.415-1.415L13.414 12l2.829-2.828-1.415-1.415L12 10.586z"/></svg>';
+    } else {
+      document.querySelector("#nsp_container").style.display = "none";
+      document.querySelector("#ce_button").innerHTML =
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="#fff" d="M0 0h24v24H0z"/><path d="M4 22a8 8 0 1 1 16 0H4zm8-9c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6z"/></svg>';
+    }
+    // document
+    //   .querySelector("#nsp_container")
+    //   .addEventListener("click", function (event) {
+    //     document.querySelector("#nsp_container").style.display = "block";
+    //   });
+  });
 
 nsp_pwd_text.innerHTML = password;
 nsp_pwd_btn.addEventListener("click", () => {
@@ -151,5 +165,5 @@ nsp_cp_btn.addEventListener("click", () => {
 });
 
 fill_btn.addEventListener("click", () => {
-  document.querySelector('input[type="password"]').value = password;
+  document.querySelector("input[type='password']").value = password;
 });
